@@ -1,18 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
-    --primary: #183A2A;
-    --primary-deep: #0f2a20;
-    --background: #F5F0E6;
-    --surface: #fffdf8;
-    --surface-warm: #efe5d3;
-    --accent: #E07A3F;
-    --sage: #59725f;
-    --text: #1A1A1A;
-    --muted: #4e4a45;
-    --line: #d8cab3;
-    --shadow: 0 22px 55px rgba(24, 58, 42, 0.12);
-    --shadow-strong: 0 30px 85px rgba(15, 42, 32, 0.18);
+    --primary: #ff4fd8;
+    --primary-deep: #080b12;
+    --background: #03070d;
+    --surface: #0a0f18;
+    --surface-warm: #111827;
+    --accent: #24d6ff;
+    --accent-strong: #00b8ff;
+    --secondary: #ff9d40;
+    --gold: #ffd86d;
+    --sage: #72f3d2;
+    --text: #f7f3ef;
+    --muted: #d9d7d8;
+    --line: rgba(255, 79, 216, 0.7);
+    --shadow: 0 0 0 1px rgba(255, 79, 216, 0.38), 0 20px 55px rgba(0, 0, 0, 0.45);
+    --shadow-strong: 0 0 0 1px rgba(36, 214, 255, 0.45), 0 35px 80px rgba(0, 0, 0, 0.58);
 }
 
 * {
@@ -28,8 +31,9 @@ html {
 body {
     font-family: "Montserrat", sans-serif;
     background:
-        radial-gradient(circle at 12% 8%, rgba(224, 122, 63, 0.12), transparent 26%),
-        linear-gradient(180deg, #f9f5ef 0%, var(--background) 42%, #f1eadc 100%);
+        radial-gradient(circle at 15% 10%, rgba(255, 79, 216, 0.2), transparent 20%),
+        radial-gradient(circle at 80% 12%, rgba(36, 214, 255, 0.17), transparent 25%),
+        linear-gradient(180deg, #020407 0%, #070c13 38%, var(--background) 100%);
     color: var(--text);
     overflow-x: hidden;
 }
@@ -65,6 +69,8 @@ img {
     text-align: center;
     color: var(--primary);
     margin-bottom: 14px;
+    text-shadow: 0 0 18px rgba(255, 79, 216, 0.3);
+    letter-spacing: 0.03em;
 }
 
 .section-subtitle {
@@ -80,9 +86,9 @@ img {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(245, 240, 230, 0.92);
-    color: var(--primary-deep);
-    border-bottom: 1px solid rgba(216, 202, 179, 0.9);
+    background: rgba(6, 9, 14, 0.8);
+    color: var(--text);
+    border-bottom: 1px solid rgba(255, 79, 216, 0.5);
     backdrop-filter: blur(18px);
     transition: box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
@@ -103,6 +109,7 @@ img {
     letter-spacing: 1px;
     white-space: nowrap;
     transition: transform 0.3s ease;
+    text-shadow: 0 0 20px rgba(255, 79, 216, 0.28);
 }
 
 .logo:hover {
@@ -135,7 +142,7 @@ img {
     width: 100%;
     height: 2px;
     content: "";
-    background: var(--accent);
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.25s ease;
@@ -143,7 +150,8 @@ img {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--primary);
+    color: var(--text);
+    text-shadow: 0 0 12px rgba(36, 214, 255, 0.35);
 }
 
 .nav-links a:hover::after,
@@ -157,21 +165,23 @@ img {
 }
 
 .book-btn {
-    border: 1px solid var(--primary);
+    border: 1px solid rgba(36, 214, 255, 0.9);
     padding: 12px 20px;
-    color: var(--primary);
+    color: var(--accent);
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 1px;
     transition: 0.25s ease;
     white-space: nowrap;
+    background: rgba(14, 20, 31, 0.8);
+    box-shadow: 0 0 18px rgba(36, 214, 255, 0.15);
 }
 
 .book-btn:hover {
-    background: var(--primary);
-    color: var(--background);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #0a0d12;
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(111, 38, 55, 0.16);
+    box-shadow: 0 0 20px rgba(255, 79, 216, 0.38);
 }
 
 .menu-toggle {
@@ -190,7 +200,9 @@ img {
 .hero {
     position: relative;
     min-height: 94vh;
-    background: linear-gradient(rgba(24, 58, 42, 0.58), rgba(24, 58, 42, 0.72)), url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=90") center/cover;
+    background:
+        linear-gradient(180deg, rgba(3, 7, 13, 0.70), rgba(3, 7, 13, 0.8)),
+        url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=90") center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,6 +211,7 @@ img {
     padding-top: 78px;
     overflow: hidden;
     isolation: isolate;
+    border-bottom: 1px solid rgba(255, 79, 216, 0.45);
 }
 
 .hero::after {
@@ -231,7 +244,7 @@ img {
 
 .hero p:first-child,
 .page-header p {
-    color: #f5d892;
+    color: var(--gold);
     letter-spacing: 4px;
     font-size: 0.82rem;
     font-weight: 700;
@@ -242,7 +255,7 @@ img {
     font-size: clamp(4rem, 9vw, 8.5rem);
     line-height: 0.88;
     margin-bottom: 30px;
-    text-shadow: 0 8px 35px rgba(0, 0, 0, 0.28);
+    text-shadow: 0 0 20px rgba(255, 79, 216, 0.3), 0 8px 35px rgba(0, 0, 0, 0.28);
     animation: titleGlow 4s ease-in-out infinite;
 }
 
@@ -251,7 +264,7 @@ img {
     margin: auto;
     line-height: 1.8;
     font-size: 1rem;
-    color: #fff4e3;
+    color: rgba(255, 244, 227, 0.95);
 }
 
 .hero-buttons {
@@ -292,14 +305,14 @@ img {
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: #fffaf3;
-    box-shadow: 0 12px 28px rgba(224, 122, 63, 0.25);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #0c1017;
+    box-shadow: 0 0 25px rgba(255, 79, 216, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    background: #d56d32;
+    box-shadow: 0 0 28px rgba(255, 157, 64, 0.4);
 }
 
 .hero-highlights {
@@ -312,24 +325,26 @@ img {
 
 .hero-highlights span {
     padding: 10px 14px;
-    border: 1px solid rgba(255, 248, 239, 0.3);
+    border: 1px solid rgba(36, 214, 255, 0.65);
     border-radius: 999px;
-    background: rgba(255, 248, 239, 0.12);
-    color: #fff8ef;
+    background: rgba(7, 12, 18, 0.65);
+    color: var(--accent);
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 1px;
     backdrop-filter: blur(12px);
+    box-shadow: inset 0 0 16px rgba(36, 214, 255, 0.15);
 }
 
 .btn-outline {
-    border: 1px solid rgba(255, 248, 239, 0.8);
-    color: #fff8ef;
+    border: 1px solid rgba(255, 79, 216, 0.95);
+    color: var(--text);
+    background: rgba(10, 15, 24, 0.6);
 }
 
 .btn-outline:hover {
-    background: #fff8ef;
-    color: var(--primary);
+    background: var(--primary);
+    color: #0c1017;
 }
 
 .intro {
@@ -564,11 +579,14 @@ img {
 }
 
 .menu-category h2 {
-    font-size: 3rem;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 1;
     color: var(--primary);
-    border-bottom: 2px solid var(--accent);
+    border-bottom: 2px solid rgba(36, 214, 255, 0.7);
     padding-bottom: 10px;
     margin-bottom: 30px;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 18px rgba(255, 79, 216, 0.35);
 }
 
 .menu-items {
@@ -581,35 +599,40 @@ img {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 22px;
+    background: rgba(210, 214, 218, 0.82);
+    border: 1px solid rgba(255, 79, 216, 0.7);
+    border-radius: 18px;
+    padding: 22px 26px;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 0 0 1px rgba(255, 79, 216, 0.12), 0 18px 35px rgba(0, 0, 0, 0.18);
 }
 
 .menu-item:hover {
-    border-color: rgba(215, 161, 59, 0.55);
-    box-shadow: 0 18px 42px rgba(67, 39, 32, 0.1);
+    border-color: rgba(36, 214, 255, 0.8);
+    box-shadow: 0 0 0 1px rgba(36, 214, 255, 0.18), 0 22px 40px rgba(0, 0, 0, 0.28);
     transform: translateY(-4px);
 }
 
 .menu-item h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 2.1rem);
     color: var(--primary);
+    line-height: 1.2;
 }
 
 .menu-item p {
-    font-size: 0.88rem;
+    font-size: 0.96rem;
     margin-top: 6px;
-    color: var(--muted);
+    color: rgba(12, 18, 24, 0.84);
     line-height: 1.6;
 }
 
 .price {
-    color: var(--sage);
+    color: var(--accent);
     font-weight: 700;
     white-space: nowrap;
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    text-shadow: 0 0 12px rgba(36, 214, 255, 0.2);
+    align-self: center;
 }
 
 .gallery-grid {
@@ -622,12 +645,76 @@ img {
     border-radius: 8px;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
 }
 
 .gallery-grid img:hover {
     filter: saturate(1.08);
     transform: scale(1.025) rotate(0.4deg);
     box-shadow: var(--shadow-strong);
+}
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(2, 6, 11, 0.82);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+    z-index: 2000;
+}
+
+.gallery-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gallery-lightbox-inner {
+    position: relative;
+    max-width: min(92vw, 1100px);
+    transform: scale(0.8) translateY(30px);
+    opacity: 0;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.gallery-lightbox.active .gallery-lightbox-inner {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.gallery-lightbox img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 79, 216, 0.7);
+    box-shadow: 0 0 0 1px rgba(36, 214, 255, 0.18), 0 30px 60px rgba(0, 0, 0, 0.5);
+    background: #070d15;
+}
+
+.gallery-lightbox-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #0c1017;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 79, 216, 0.35);
 }
 
 .booking-shell {
@@ -649,10 +736,11 @@ img {
 }
 
 .booking-info {
-    background: linear-gradient(135deg, var(--primary) 0%, #163d5c 100%);
+    background: linear-gradient(135deg, rgba(255, 79, 216, 0.15), rgba(36, 214, 255, 0.12), rgba(10, 15, 24, 0.9));
     color: #fffaf5;
     padding: 36px 30px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 79, 216, 0.5);
+    box-shadow: var(--shadow);
 }
 
 .booking-badge {
@@ -660,7 +748,7 @@ img {
     padding: 8px 14px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.08);
-    color: #fbd8b2;
+    color: #ffd86d;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -674,6 +762,7 @@ img {
     color: inherit;
     margin-bottom: 16px;
     line-height: 1.05;
+    text-shadow: 0 0 14px rgba(255, 79, 216, 0.2);
 }
 
 .booking-info p {
@@ -709,8 +798,9 @@ img {
 
 .contact-form {
     padding: 34px 30px;
-    background: var(--surface);
-    border: 1px solid rgba(16, 42, 67, 0.08);
+    background: rgba(7, 12, 18, 0.92);
+    border: 1px solid rgba(255, 79, 216, 0.6);
+    box-shadow: var(--shadow);
 }
 
 .booking-form-card {
@@ -736,8 +826,9 @@ img {
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 1.2px;
-    color: var(--primary);
+    color: #0b0d12;
     text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 79, 216, 0.18);
 }
 
 input,
@@ -745,26 +836,33 @@ select,
 textarea {
     width: 100%;
     padding: 15px 16px;
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 79, 216, 0.45);
     border-radius: 12px;
-    background: #fffaf4;
-    color: var(--text);
+    background: #f5edf6;
+    color: #0f1727;
     font-family: inherit;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+    color: rgba(15, 23, 39, 0.68);
+}
+
 input:hover,
 select:hover,
 textarea:hover {
-    border-color: rgba(16, 42, 67, 0.35);
+    border-color: rgba(36, 214, 255, 0.7);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.12);
+    box-shadow: 0 0 0 4px rgba(36, 214, 255, 0.14);
+    background: #fffafc;
 }
 
 .booking-form .btn {
@@ -773,6 +871,7 @@ textarea:focus {
     padding: 16px 22px;
     font-size: 0.8rem;
     letter-spacing: 1.5px;
+    color: #0b0d12;
 }
 
 @media (max-width: 860px) {

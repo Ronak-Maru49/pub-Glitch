@@ -56,6 +56,50 @@ document.querySelectorAll(".booking-form").forEach(form => {
     });
 });
 
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+
+if (galleryImages.length) {
+    const galleryLightbox = document.createElement("div");
+    galleryLightbox.className = "gallery-lightbox";
+    galleryLightbox.innerHTML = `
+        <div class="gallery-lightbox-inner">
+            <button type="button" class="gallery-lightbox-close" aria-label="Close image">&times;</button>
+            <img src="" alt="Expanded gallery image">
+        </div>
+    `;
+
+    const galleryImage = galleryLightbox.querySelector("img");
+    const closeGalleryLightbox = () => {
+        galleryLightbox.classList.remove("active");
+        document.body.style.overflow = "";
+    };
+
+    galleryImages.forEach(image => {
+        image.addEventListener("click", () => {
+            galleryImage.src = image.src;
+            galleryImage.alt = image.alt || "Gallery image";
+            galleryLightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    galleryLightbox.addEventListener("click", event => {
+        if (event.target === galleryLightbox) {
+            closeGalleryLightbox();
+        }
+    });
+
+    galleryLightbox.querySelector(".gallery-lightbox-close").addEventListener("click", closeGalleryLightbox);
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && galleryLightbox.classList.contains("active")) {
+            closeGalleryLightbox();
+        }
+    });
+
+    document.body.appendChild(galleryLightbox);
+}
+
 function initHeritageScene() {
     const canvas = document.querySelector("#heritage-scene");
 
